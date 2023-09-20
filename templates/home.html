@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+</head>
+<style>
+    	/* Reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set font family */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set background color */
+body {
+  background-color: #f8f8f8;
+}
+
+/* Navbar styles */
+.navBar {
+  background-color: #1e213a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  color: #f8f8f8;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Center content container */
+.ml-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.searchbutton {
+  background-color: #252525;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchbutton:hover {
+  background-color: #333;
+}
+
+/* Category styles */
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.category li {
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 1px solid #1e213a;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.category li:hover {
+  background-color: #1e213a;
+  color: #f8f8f8;
+}
+
+/* Header 2 styles */
+.header2 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+		
+
+</style>
+
+<body>
+
+
+	<div class="navBar">
+		<h1 class="header">Text Classifier</h1>
+	</div>
+	<div class="ml-container" style="text-align:center">
+		<form action="{{ url_for('predict')}}" method="POST">
+			<input type="text" name="message" rows="4" cols="50" placeholder="Enter The News Headline.."></input>
+			<input class="searchbutton" type="submit" class="btn-info" value="Predict" align="center">
+      <!-- button if clicked redirect to analysis page -->
+      <a href="{{ url_for('analysis')}}" class="btn btn-info" role="button">Analysis</a>
+      
+			<h2 class="header2"> Avaialable Categories to predict:</h2>
+
+			
+		</form>
+		<ul class="category"> 
+			<h2>
+				<li class="sports">Sports</li>
+				<li class="politics">Politics</li>
+				<li class="entertainment">Entertainment</li>
+				<li class="intern">International</li>
+				<li class="lower tech">Technology</li>
+				<li class="lower business">Business</li>
+				<li class="lower health">Health and Sciences</li>
+			
+			</h2>
+		</ul>
+	</div>
+
+
+
+</body>
+</html>
